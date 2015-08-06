@@ -17,6 +17,11 @@ assign
 body
 :   (of a function): the statements that are executed when a function runs.
 
+broadcast
+:   The term broadcasting describes how numpy treats arrays with different shapes during 
+    arithmetic operations. Subject to certain constraints, the smaller array is 
+    "broadcast" across the larger array so that they have compatible shapes. 
+
 call stack
 :   A data structure inside a running program that keeps track of active function calls.
 
