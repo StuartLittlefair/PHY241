@@ -22,7 +22,7 @@ unzip python-teaching.zip
 and start the IPython notebook in the resulting directory.
 
 ```
-ipython notebook
+jupyter notebook
 ```
 
 
