@@ -33,6 +33,10 @@ case-sensitive
 :   Treating text as if upper and lower case characters of the same letter are different.
     See also: [case-insensitive](#case-insensitive).
 
+colormap
+:   A transformation used to display images. A colormap converts pixel values into a color 
+    for display. 
+
 comment
 :   A remark in a program that is intended to help human readers understand what is going on,
     but is ignored by the computer.
