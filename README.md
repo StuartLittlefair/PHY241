@@ -12,7 +12,7 @@ interactively, you can do that. They are intended to be executed
 with Jupyter 4 or newer. You can find installation instructions
 [here](http://jupyter.readthedocs.org/en/latest/install.html).
 
-The notebooks and associated data for all my courses can be downloaded [here](https://github.com/StuartLittlefair/PHY241/zipball/master).
+The notebooks and associated data for this course can be downloaded [here](https://github.com/StuartLittlefair/PHY241/zipball/master).
 Unzip the notebooks:
 
 ```
