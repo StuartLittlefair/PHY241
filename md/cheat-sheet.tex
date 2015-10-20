@@ -5,8 +5,19 @@
 %\setmintedinline{xrightmargin=-0.5in,xleftmargin=-0.5in}
 \RecustomVerbatimEnvironment{Verbatim}{BVerbatim}{}
 
-\usepackage[landscape,a4paper,left=0.5in, right=0.5in, top=0.5in, bottom=0.75in]{geometry}
+\usepackage[landscape,a4paper,left=0.15in, right=0.25in, top=0.5in, bottom=0.75in]{geometry}
 \usepackage{multicol}
+\setlength{\parindent}{0pt}
+
+\usepackage{titlesec}
+%    spacing: how to read {12pt plus 4pt minus 2pt}
+%           12pt is what we would like the spacing to be
+%           plus 4pt means that TeX can stretch it by at most 4pt
+%           minus 2pt means that TeX can shrink it by at most 2pt
+%          This is one example of the concept of, 'glue', in TeX
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 
 \begin{document}
 \pagenumbering{gobble}
@@ -23,7 +34,6 @@
 
 \subsection*{Getting Help}
 \begin{tabular}{p{0.3\linewidth}l}
-\mint{python}{help()} & interactive help \\
 \mint{python}{help(object)} & help for object \\
 \mint{python}{object}?  & iPython: help for object \\
 \mint{python}{dir(object)} & display members of object \\
@@ -61,13 +71,15 @@
 \end{tabular}
 
 \subsection*{Basic Syntax}
- \begin{tabular}{p{0.6\linewidth}l}
+ \begin{tabular}{p{0.65\linewidth}l}
 \mint{python}{def bar(args): ...} & function definition \\
 \mint{python}{if c: .. elif c: ... else: } & conditionals \\
 \mint{python}{try: ... except: ... } & error handling \\
 \mint{python}{try: ... except Error as e:  } & error handling \\
 \mint{python}{while condition: ...} & while loop \\
-\mint{python}{for item in list: ...} & for loop \\
+\mint{python}{for item in list: ...} & for loops \\
+\mint{python}{for index, item in enumerate(list): ...} & \\
+\mint{python}{for a,b in zip(listA, listB): ...} & \\
 \end{tabular}
 
 \subsection*{NumPy}
@@ -151,7 +163,7 @@ The following assumes that NumPy has been imported using \mint{python}{import nu
 Interaction with the operating system can be acheived using \mint{python}{import os}
 and \mint{python}{import shutil}
 
-\begin{tabular}{p{0.4\linewidth}l}
+\begin{tabular}{p{0.42\linewidth}l}
 \mint{python}{os.mkdir(name)} & make directory `name` \\
 \mint{python}{os.unlink(file)} & delete file `name` \\
 \mint{python}{os.listdir(path)} & list all files in path \\
@@ -243,6 +255,7 @@ Astropy is quite clever at interpreting different formats of time strings. For f
 String formatting follows the general pattern \mint{python}{``{} {}''.format(arg1, arg2)} to
 replace the curly braces with the values supplied in the arguments.
 
+\vspace*{0.3cm}
 The exact appearance of the text that replaces the curly braces can be controlled by 
 format characters. The format characters are preceded by a colon within the curly braces. To run the  examples below use 
 
@@ -263,7 +276,6 @@ So to get the output of the first example, you would run: \mint{python}{print(``
 1000000 & \{:.2e\} & 1.00e+06 & sci. notation \\
 \end{tabular}
 
-\subsection*{SciPy}
 
 
 \end{multicols}
