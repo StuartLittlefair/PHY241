@@ -1,0 +1,6 @@
+solved/*
+.ipynb_checkpoints/*
+md/*.aux
+md/*.gz
+md/*.log
+md/*.out
