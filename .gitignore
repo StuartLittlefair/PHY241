@@ -1,3 +1,8 @@
-solved/*
+solved/**
+help_and_solutions/**
+***/.ipynb_checkpoints/*
 .ipynb_checkpoints/*
+*.sage*
+**/.sage*
 md/
+
