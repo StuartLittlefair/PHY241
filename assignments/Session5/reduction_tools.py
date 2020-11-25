@@ -4,9 +4,9 @@ from __future__ import (division, print_function, absolute_import,
 from collections import OrderedDict
 import os
 import warnings
+import six
 
 import ccdproc
-from astropy.extern import six
 
 import numpy as np
 
@@ -102,6 +102,7 @@ class Reduction(ReducerBase):
             current_file = 0
             for hdu, fname in self.image_collection.hdus(return_fname=True,
                                                          save_location=self.destination,
+                                                         overwrite=True,
                                                          **self.apply_to):
                 current_file += 1
                 try:
@@ -155,10 +156,10 @@ class GroupBy:
         from copy import deepcopy
         tmp_coll = deepcopy(self._image_source)
         tmp_coll._find_keywords_by_values(**apply_to)
-        mask = tmp_coll.summary_info['file'].mask
+        mask = tmp_coll.summary['file'].mask
         # Note the logical not below; mask indicates which values
         # should be EXCLUDED.
-        filtered_table = tmp_coll.summary_info[~mask]
+        filtered_table = tmp_coll.summary[~mask]
         grouped_table = filtered_table.group_by(self.keyword_list)
         combine_groups = grouped_table.groups.keys
         group_list = []
@@ -306,7 +307,7 @@ class CalibrationStep:
                 del new_select[closest]
                 file_name = self._master_source.files_filtered(master=True,
                                                                **new_select)
-                master_table = self._master_source.summary_info
+                master_table = self._master_source.summary
                 min_dist = 1e20
                 for name in file_name:
                     match = master_table['file'] == name
