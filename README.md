@@ -1,18 +1,16 @@
 PHY241 - Observational Astronomy
 ========================================================
 
-Here are found Jupyter notebooks to assist with my 
-Observational Astronomy course for undergraduate astronomy 
-students at the University of Sheffield. 
+Assignments for this course are found in the [assignments](assignments) folder.
 
-These notebooks can be viewed statically online  [here](http://nbviewer.ipython.org/github/StuartLittlefair/PHY241/tree/master).
+Some useful reference material is available in the [resources](resources) folder.
 
 Alternatively, if you would like to download and run the notebooks
-interactively, you can do that. They are intended to be executed
+on your own laptop, you can do that. They are intended to be executed
 with Jupyter 4 or newer. You can find installation instructions
 [here](http://jupyter.readthedocs.org/en/latest/install.html).
 
-The notebooks and associated data for this course can be downloaded [here](https://github.com/StuartLittlefair/PHY241/zipball/master).
+The notebooks and associated data for this course can be downloaded [here](https://github.com/StuartLittlefair/PHY241/zipball/sagemc).
 Unzip the notebooks:
 
 ```
