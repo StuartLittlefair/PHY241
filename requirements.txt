@@ -3,4 +3,3 @@ astropy >= 6.0
 astroquery >= 0.4
 astroalign >= 2.0
 photutils >= 2.0
-sep >= 1.4.0
