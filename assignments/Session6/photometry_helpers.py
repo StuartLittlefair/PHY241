@@ -5,7 +5,7 @@ import astropy.stats as st
 from astropy.visualization import AsymmetricPercentileInterval
 from astropy.visualization.mpl_normalize import ImageNormalize
 import numpy as np
-import photutils as p
+from photutils import aperture as ap
 from astropy.wcs import WCS
 from photutils.utils import calc_total_error
 from matplotlib import pyplot as plt
@@ -48,15 +48,15 @@ def aperture_photometry(data, header, sources, aperture_radius, sky_inner_radius
     """
     # make apertures around sources, and annuli for sky estimation
     positions = np.transpose((sources['xcentroid'], sources['ycentroid']))
-    apertures = p.CircularAperture(positions, r=aperture_radius)
-    sky_annulus = p.CircularAnnulus(positions,
+    apertures = ap.CircularAperture(positions, r=aperture_radius)
+    sky_annulus = ap.CircularAnnulus(positions,
                                     r_in=sky_inner_radius, r_out=sky_outer_radius)
     annulus_masks = sky_annulus.to_mask(method='center')
 
     # aperture photometry - calculates total counts in apertures, with errors
     # calc_total_error uses CCD SNR equation - see Lecture 9
     error_arr = calc_total_error(data, 12.0, 1/header['EGAIN'])
-    phot_table = p.aperture_photometry(data, apertures, error=error_arr)
+    phot_table = ap.aperture_photometry(data, apertures, error=error_arr)
 
     # calculate the Sky background. Because the sky annulus might have other
     # stars inside it, we will take a CLIPPED MEAN of the counts in the annulus
@@ -114,7 +114,7 @@ def plot_sources(data, sources, radius):
         The size of apertures to plot, in pixels
     """
     positions = np.transpose((sources['xcentroid'], sources['ycentroid']))
-    apertures = p.CircularAperture(positions, r=radius)
+    apertures = ap.CircularAperture(positions, r=radius)
     norm = ImageNormalize(data, interval=AsymmetricPercentileInterval(5, 95))
     fig = plt.figure(figsize=(15, 12))
     plt.imshow(data, cmap='Greys', origin='lower', norm=norm, interpolation='nearest')
