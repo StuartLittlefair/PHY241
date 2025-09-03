@@ -5,4 +5,4 @@ help_and_solutions/**
 *.sage*
 **/.sage*
 md/
-
+.DS_Store
